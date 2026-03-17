@@ -1,39 +1,22 @@
 # Projects
 
-This folder contains one Markdown file per project.
+This folder is intentionally kept almost empty in the template.
 
-## Rule
+## What belongs here
 
-Each important project should live in its own file.
-
-## Naming convention
-
-Use lowercase kebab-case.
-
-Examples:
+Add one Markdown file per project, using lowercase kebab-case such as:
 
 - `ai-finance-dashboard.md`
-- `project-center.md`
 - `vps-security-audit.md`
+- `personal-brand-site.md`
 
 ## Recommended flow
 
 1. Copy `../templates/project-template.md`
-2. Rename it
-3. Fill the sections
-4. Link it from `../INDEX.md`
+2. Rename it for your project
+3. Fill in the sections
+4. Add the link to `../INDEX.md`
 
-## What counts as a project
+## Important note
 
-A project can be:
-
-- a software repository,
-- a client initiative,
-- a dashboard,
-- a research effort,
-- a business experiment,
-- a website,
-- a workflow automation,
-- an infrastructure deployment,
-- a learning build,
-- or a strategic initiative.
+Project Markdown files in this folder are ignored by default through `./.gitignore` so the template stays empty for each new user. If you want to version your own project files, edit or remove that ignore rule in your fork.

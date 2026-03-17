@@ -1,0 +1,4 @@
+# Keep the template instructions tracked, but ignore user project files by default.
+*.md
+!README.md
+!.gitignore
