@@ -1,86 +1,102 @@
 # Project Center
 
-A Markdown-first repository to centralize projects, CV, timeline, portfolio, and professional context in one reusable public system.
+A Markdown-first repository template to centralize projects, CV, timeline, portfolio, and professional context in one reusable public system.
 
-## Why this exists
+## Project Overview
 
-Most builders have their work scattered across chats, GitHub repos, cloud tools, websites, resumes, and notes. Project Center creates a single version-controlled home where all that work can be documented, indexed, and presented clearly.
+Project Center is a documentation system, not an application. It gives a person one version-controlled home for their profile, master CV, project files, milestones, and the provenance of that information. It uses a fixed folder structure and a standard project template, so the content stays consistent, easy to present, and easy for both humans and AI tools to reuse.
 
-## What this repository includes
+## Project Context
 
-- a profile summary,
-- a master CV,
-- a project index,
-- standardized Markdown project files,
-- optional chat and source summaries,
-- and a structure other people can clone for their own portfolio.
+- **Type:** Personal Project (repository template)
+- **Author:** Baruch López
+- **Created:** March 2026 (two commits on 2026-03-17)
+- **Status:** V1 skeleton complete. It ships intentionally empty so it can be cloned.
 
-## Repository structure
+Evidence and history: [docs/project-context.md](./docs/project-context.md).
+
+## Problem Statement
+
+Builders produce work across AI chats, GitHub repositories, cloud and VPS tools, LinkedIn, several CV versions, and loose notes. Without a single source of truth, project history gets lost, portfolios stay weak, and every CV update repeats the same work.
+
+## Objective
+
+Provide a simple, minimalist, public, and reusable structure where every project becomes a structured Markdown file, every milestone is recorded, and the whole profile is portable and versioned.
+
+## Repository Structure
 
 ```text
 .
-├── README.md
-├── PROJECT_CENTER_BLUEPRINT.md
-├── INDEX.md
-├── CONTRIBUTING.md
-├── profile/
-├── cv/
-├── projects/
-├── timeline/
-├── chats/
-├── sources/
-├── templates/
-└── docs/
+├── README.md                     # This overview
+├── INDEX.md                      # Public navigation hub
+├── PROJECT_CENTER_BLUEPRINT.md   # Founding design document
+├── CONTRIBUTING.md               # Adoption, naming, and commit conventions
+├── AGENTS.md                     # Guidelines for contributors and AI agents
+├── profile/                      # Public profile summary
+├── cv/                           # Master CV (source of truth)
+├── projects/                     # One file per project (git-ignored by default)
+├── timeline/                     # Milestones over time
+├── chats/                        # Redacted summaries extracted from chats
+├── sources/                      # Provenance registry
+├── templates/                    # Project template
+└── docs/                         # Rules, project documentation, intent/spec/plan
+    ├── sdlc/                     # intent.md · spec.md · plan.md
+    └── original/                 # Original README and files recovered from history
 ```
 
-## Recommended workflow
+## Original Implementation
 
-1. Add your profile in `profile/summary.md`.
-2. Add your master experience record in `cv/master-cv.md`.
-3. Create one Markdown file per project in `projects/`.
-4. Update `INDEX.md` as your public navigation layer.
-5. Keep project files structured and reusable.
+This repository preserves the original implementation of the project. The template files (blueprint, index, contributing guide, agent guidelines, repository rules, and every content folder) have intentionally not been refactored or modernized, in order to retain the historical context and original design approach. They represent the original implementation developed as a personal project.
 
-## What a project file should contain
+The only replaced file is this `README.md`. Its original version is preserved verbatim at [docs/original/original-readme.md](./docs/original/original-readme.md).
 
-Each project should answer, at minimum:
+## Technologies
 
-- What is it?
-- Why does it exist?
-- What problem does it solve?
-- What did you do?
-- What tools did you use?
-- What changed because of it?
-- What did you learn?
+- Markdown
+- Git and GitHub
 
-## Who this is for
+There are no programming languages, frameworks, dependencies, or build tools in the repository.
 
-This system is especially useful for:
+## How It Works
 
-- developers,
-- AI engineers,
-- data professionals,
-- consultants,
-- founders,
-- product builders,
-- and multidisciplinary operators.
+1. Describe yourself in [`profile/summary.md`](./profile/summary.md).
+2. Record your full experience in [`cv/master-cv.md`](./cv/master-cv.md).
+3. Copy [`templates/project-template.md`](./templates/project-template.md) to `projects/<kebab-case-name>.md` for each project and fill it in.
+4. Use `timeline/`, `chats/` (summarized and redacted only), and `sources/` for milestones and provenance.
+5. Link every important project from [`INDEX.md`](./INDEX.md), the public navigation layer.
 
-## Principles
+Project files are ignored by [`projects/.gitignore`](./projects/.gitignore) so the template stays empty. Edit that rule in your fork to version your own projects.
 
-- Markdown is the source of truth.
-- Keep the repository human-readable.
-- Keep public and private content separate.
-- Standardize project documentation.
-- Prefer simple structure over premature automation.
+## Architecture
 
-## Start here
+The repository is an information architecture with navigation, governance, identity, work, and provenance layers, connected by relative links. See [docs/architecture.md](./docs/architecture.md).
 
-- Read `PROJECT_CENTER_BLUEPRINT.md`
-- Update `profile/summary.md`
-- Update `cv/master-cv.md`
-- Duplicate `templates/project-template.md` into `projects/`
-- Edit `INDEX.md`
+## Inputs and Outputs
 
-## Public template note
+- **Inputs:** manually summarized content from chats, repositories, CVs, LinkedIn, notes, and other tools.
+- **Outputs:** a navigable public portfolio, and reusable material for CVs, bios, websites, and applications.
 
-If you publish this repository as a template, remove any sensitive, confidential, or non-public information before making it public.
+## Running the Project
+
+There is nothing to run or build. Read the files in any Markdown viewer or on GitHub. The validation commands used by contributors (from [`AGENTS.md`](./AGENTS.md)) are:
+
+```bash
+rg --files                             # list tracked docs
+rg "project-name" projects INDEX.md    # check that a project and its index entry match
+git diff --check                       # catch whitespace errors before committing
+```
+
+## Documentation
+
+- [Blueprint](./PROJECT_CENTER_BLUEPRINT.md) · [Index](./INDEX.md) · [Contributing](./CONTRIBUTING.md) · [Agent Guidelines](./AGENTS.md)
+- [Documentation index](./docs/README.md)
+- [Project Context](./docs/project-context.md) · [Architecture](./docs/architecture.md) · [Content Overview](./docs/content-overview.md) · [Possible Improvements](./docs/possible-improvements.md)
+- [Intent](./docs/sdlc/intent.md) · [Specification](./docs/sdlc/spec.md) · [Plan](./docs/sdlc/plan.md)
+
+## Public Template Note
+
+If you publish your own copy, remove any sensitive, confidential, or non-public information first. Never commit secrets, API keys, client data, legal or tax documents, or unreviewed raw chats.
+
+## Historical Note
+
+This repository was later reorganized and documented to improve readability and preserve the historical context of the original project. The original template files remain unchanged.
